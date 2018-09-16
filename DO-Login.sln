@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOAuction", "DOAuction.csproj", "{6CA3F78A-0FDB-43D1-B1A6-1DC797B440A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CA3F78A-0FDB-43D1-B1A6-1DC797B440A9}.Debug|x86.ActiveCfg = Debug|x86
+		{6CA3F78A-0FDB-43D1-B1A6-1DC797B440A9}.Debug|x86.Build.0 = Debug|x86
+		{6CA3F78A-0FDB-43D1-B1A6-1DC797B440A9}.Release|x86.ActiveCfg = Release|x86
+		{6CA3F78A-0FDB-43D1-B1A6-1DC797B440A9}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D51A57E2-D126-414E-B44D-79FCBDAB892D}
+	EndGlobalSection
+EndGlobal
