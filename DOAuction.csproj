@@ -10,6 +10,21 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -32,20 +47,39 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="DO_Login\Core\ModelBase.cs" />
-    <Compile Include="DO_Login\Core\NavegationService.cs" />
-    <Compile Include="DO_Login\Core\ViewBase.cs">
+    <Compile Include="DO_Auction\Core\ModelBase.cs" />
+    <Compile Include="DO_Auction\Core\Navegation.cs" />
+    <Compile Include="DO_Auction\Core\ViewBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DO_Login\Core\ViewModelBase.cs" />
-    <Compile Include="DO_Login\Core\ViewModelLocator.cs" />
-    <Compile Include="DO_Login\Helpers\TokenGenerator.cs" />
-    <Compile Include="DO_Login\Interfaces\IView.cs" />
-    <Compile Include="DO_Login\Interfaces\IViewModel.cs" />
-    <Compile Include="DO_Login\ViewModels\AuctionViewModel.cs" />
-    <Compile Include="DO_Login\ViewModels\LoginViewModel.cs" />
+    <Compile Include="DO_Auction\Core\ViewModelBase.cs" />
+    <Compile Include="DO_Auction\Core\ViewModelLocator.cs" />
+    <Compile Include="DO_Auction\Helpers\TokenGenerator.cs" />
+    <Compile Include="DO_Auction\Interfaces\INavigation.cs" />
+    <Compile Include="DO_Auction\Interfaces\IView.cs" />
+    <Compile Include="DO_Auction\Interfaces\IViewModel.cs" />
+    <Compile Include="DO_Auction\ViewModels\AuctionViewModel.cs" />
+    <Compile Include="DO_Auction\ViewModels\LoginViewModel.cs" />
     <Reference Include="Bindery, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Bindery.1.0.0\lib\net45\Bindery.dll</HintPath>
     </Reference>
@@ -53,13 +87,13 @@
       <HintPath>packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
-      <HintPath>packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
-      <HintPath>packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
-      <HintPath>packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.8.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>packages\HtmlAgilityPack.1.8.7\lib\Net45\HtmlAgilityPack.dll</HintPath>
@@ -80,37 +114,37 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
-    <Compile Include="DO_Login\Models\BidModel.cs" />
-    <Compile Include="DO_Login\Models\UserModel.cs" />
-    <Compile Include="DO_Login\Services\DOApiService.cs" />
-    <Compile Include="DO_Login\Services\HtmlElementService.cs" />
-    <Compile Include="DO_Login\Services\WebRequestService.cs" />
-    <Compile Include="DO_Login\Views\AuctionView.cs">
+    <Compile Include="DO_Auction\Models\BidModel.cs" />
+    <Compile Include="DO_Auction\Models\UserModel.cs" />
+    <Compile Include="DO_Auction\Services\DOApiService.cs" />
+    <Compile Include="DO_Auction\Services\HtmlElementService.cs" />
+    <Compile Include="DO_Auction\Services\WebRequestService.cs" />
+    <Compile Include="DO_Auction\Views\AuctionView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DO_Login\Views\AuctionView.Designer.cs">
+    <Compile Include="DO_Auction\Views\AuctionView.Designer.cs">
       <DependentUpon>AuctionView.cs</DependentUpon>
     </Compile>
-    <Compile Include="DO_Login\Views\LoginView.cs">
+    <Compile Include="DO_Auction\Views\LoginView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DO_Login\Views\LoginView.Designer.cs">
+    <Compile Include="DO_Auction\Views\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
-    <Compile Include="DO_Login\Models\OfferModel.cs" />
-    <Compile Include="DO_Login\Program.cs" />
-    <Compile Include="DO_Login\Properties\Resources.cs" />
-    <Compile Include="DO_Login\Properties\Settings.cs" />
+    <Compile Include="DO_Auction\Models\OfferModel.cs" />
+    <Compile Include="DO_Auction\Program.cs" />
+    <Compile Include="DO_Auction\Properties\Resources.cs" />
+    <Compile Include="DO_Auction\Properties\Settings.cs" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DO_Login\Views\AuctionView.resx">
+    <EmbeddedResource Include="DO_Auction\Views\AuctionView.resx">
       <DependentUpon>AuctionView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DO_Login\Views\LoginView.resx">
+    <EmbeddedResource Include="DO_Auction\Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -126,6 +160,18 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DO_Login\Controls\" />
+    <Folder Include="DO_Auction\Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
 </Project>
